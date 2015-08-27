@@ -1211,6 +1211,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 					/Users/ktakahas/tmp/oFeyetribe/of_v0.8.4_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx,
 					/Users/ktakahas/tmp/oF_Spherotoon/of_v0.8.4_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx,
+					"/Users/ktakahas/tmp/oF_Spherotoon/of_v0.8.4_osx_release/addons/ofxKinect/libs/libusb-1.0/lib/osx",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -1319,6 +1320,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					/Users/ktakahas/tmp/oFeyetribe/of_v0.8.4_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx,
 					/Users/ktakahas/tmp/oF_Spherotoon/of_v0.8.4_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx,
+					"/Users/ktakahas/tmp/oF_Spherotoon/of_v0.8.4_osx_release/addons/ofxKinect/libs/libusb-1.0/lib/osx",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

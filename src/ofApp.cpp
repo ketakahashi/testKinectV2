@@ -13,22 +13,28 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	ofBackground(0, 0, 0);
     kinect.update();
     if( kinect.isFrameNew() ){
-        ofp = kinect.getRawDepthPixels();
+        ofFloatPixels depth = kinect.getRawDepthPixels();
+//        ofPixels rgb = kinect.getRgbPixels();
+        
+        int w_depth = depth.getWidth();
+        int h_depth = depth.getHeight();
+//        float w_rate = rgb.getWidth() / w_depth;
+//        float h_rate = rgb.getHeight() / h_depth;
+        //cout <<w_rate << "," <<h_rate << endl;
+        float *d = depth.getPixels();
+        int d_cnt = 0;
         
         vbomesh.setMode(OF_PRIMITIVE_POINTS);
         vbomesh.clear();
-        
-        int w = ofp.getWidth();
-        int h = ofp.getHeight();
-        float *d = ofp.getPixels();
-        int d_cnt = 0;
-        
-        for(int y = 0; y < h; y++) {
-            for(int x = 0; x < w; x++) {
-                vbomesh.addVertex(ofVec3f(x-w/2, y, d[d_cnt++] / 5));
+        for(int y = 0; y < h_depth; y++) {
+            for(int x = 0; x < w_depth; x++) {
+                if (d[d_cnt] > 500 && d[d_cnt] < 6000) {
+                    vbomesh.addVertex(ofVec3f(x - w_depth / 2, y, d[d_cnt] / 5));
+ //                   vbomesh.addColor(rgb.getColor(x * w_rate * 1.4, y * h_rate* 1.2));
+                }
+                d_cnt++;
             }
         }
     }
@@ -36,7 +42,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    ofSetColor(255, 255, 255);
+    ofBackground(0, 0, 0);
     easyCam.begin();
     ofPushMatrix();
     ofScale(1, -1, -1);

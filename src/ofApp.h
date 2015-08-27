@@ -22,7 +22,6 @@ public:
     void gotMessage(ofMessage msg);
     
     ofxKinectV2 kinect;
-    ofFloatPixels ofp;
     ofEasyCam easyCam;
     ofVboMesh vbomesh;
 };
